@@ -6,9 +6,7 @@ plugins {
 android {
     namespace = "com.example.smartpantry"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        version = release(37)
     }
 
     defaultConfig {
@@ -53,4 +51,37 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+
+
+    // Compose BOM
+
+         implementation("androidx.core:core-ktx:1.13.1")
+        implementation("androidx.activity:activity-compose:1.9.0")
+        implementation(platform("androidx.compose:compose-bom:2024.06.00"))
+        implementation("androidx.compose.ui:ui")
+        implementation("androidx.compose.ui:ui-graphics")
+        implementation("androidx.compose.ui:ui-tooling-preview")
+        implementation("androidx.compose.material3:material3")
+        //Supabase Kotlin client (BOM manages all module versions)
+    implementation(platform("io.github.jan-tennert.supabase:bom:3.5.0"))
+    implementation("io.github.jan-tennert.supabase:postgrest-kt")
+// HTTP engine required by supabase-kt
+    implementation("io.ktor:ktor-client-android:3.0.3")
+// Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+// Material icons used by the app (Edit / Delete)
+    implementation("androidx.compose.material:material-icons-extended")
+
+    // kotlinx-datetime
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
+
+    // kotlinx-serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
+    //Navigation
+    implementation("androidx.navigation:navigation-compose:2.10.2")
+
+    //view model
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
 }
